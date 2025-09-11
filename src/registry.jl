@@ -287,6 +287,7 @@ add_format(format"PLY_BINARY", "ply\nformat binary_little_endian 1.0", ".ply", [
 add_format(format"2DM", "MESH2D", ".2dm", [idMeshIO])
 add_format(format"OFF", "OFF", ".off", [idMeshIO])
 add_format(format"MSH", (), ".msh", [idMeshIO])
+add_format(format"INP", (), ".inp", [idMeshIO])
 
 # Bundler SfM format
 add_format(format"OUT", "# Bundle file v0.3\n", ".out", [:BundlerIO => UUID("654bb1e1-1cb7-4447-b770-09a16346af94")])
