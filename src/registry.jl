@@ -298,6 +298,7 @@ add_format(format"GSLIB", (), [".gslib",".sgems"], [:GslibIO => UUID("4610876b-9
 detectwav(io) = detect_riff(io, b"WAVE")
 add_format(format"WAV", detectwav, ".wav", [:WAV => UUID("8149f6b0-98f6-5db9-b78f-408fbbb8ef88")], [idLibSndFile])
 add_format(format"FLAC", "fLaC", ".flac", [:FLAC => UUID("abae9e3b-a9a0-4778-b5c6-ca109b507d99")], [idLibSndFile])
+add_format(format"AIFF", "FORM", [".aif", ".aiff"], [idLibSndFile])
 
 ## Profile data
 add_format(
