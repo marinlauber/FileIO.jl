@@ -16,6 +16,7 @@ const idVideoIO = :VideoIO => UUID("d6d074c3-1acf-5d4c-9a43-ef38773959a2")
 const idLibSndFile = :LibSndFile => UUID("b13ce0c6-77b0-50c6-a2db-140568b8d1a5")
 const idJpegTurbo = :JpegTurbo => UUID("b835a17e-a41a-41e7-81f0-2f016b05efe0")
 const idNPZ = :NPZ => UUID("15e1cf62-19b3-5cfa-8e77-841668bca605")
+const idUFFFiles = :UFFFiles => UUID("20c5726e-8372-4c34-be2c-190a5a70d483")
 
 # Cf. https://developers.google.com/speed/webp/docs/riff_container#riff_file_format, and https://learn.microsoft.com/en-us/windows/win32/xaudio2/resource-interchange-file-format--riff-#chunks
 function detect_riff(io::IO, expected_magic::AbstractVector{UInt8})
@@ -299,6 +300,7 @@ add_format(format"GSLIB", (), [".gslib",".sgems"], [:GslibIO => UUID("4610876b-9
 detectwav(io) = detect_riff(io, b"WAVE")
 add_format(format"WAV", detectwav, ".wav", [:WAV => UUID("8149f6b0-98f6-5db9-b78f-408fbbb8ef88")], [idLibSndFile])
 add_format(format"FLAC", "fLaC", ".flac", [:FLAC => UUID("abae9e3b-a9a0-4778-b5c6-ca109b507d99")], [idLibSndFile])
+add_format(format"AIFF", "FORM", [".aif", ".aiff"], [idLibSndFile])
 
 ## Profile data
 add_format(
@@ -567,3 +569,6 @@ add_format(format"HOA", UInt8[0x48,0x4f,0x41,0x3a], ".hoa", [:Buchi => UUID("484
 # GOAL http://goal.im.ntu.edu.tw/wiki/doku.php
 # ROLL https://iscasmc.ios.ac.cn/roll/doku.php?id=start
 add_format(format"BA", (), ".ba", [:Buchi => UUID("484f28d2-1a9e-4e02-bb9b-910131567e8f")])
+
+# UFF (Universal File Format) files
+add_format(format"UFF", (), [".uff", ".unv", ".uf", ".bunv", ".ufb", ".buf"], [idUFFFiles])
