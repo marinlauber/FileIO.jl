@@ -21,28 +21,21 @@ jobs:
       matrix:
         version:
           - '1'    # Current stable version
-          - lts # Current LTS version
+          - 'lts'  # Current LTS version
           - '1.6'  # Previous LTS version
         os:
-          - macOS-13 # x64 runner
-          - macOS-latest # aarch64 runner
+          - macOS-15-intel
           - ubuntu-latest
           - windows-latest
         arch:
-          - aarch64
           - x64
-        exclude:
-          - os: macOS-13
-            arch: aarch64
-          - os: macOS-latest
-            arch: x64
-          - os: macOS-latest
-            version: '1.6'
-          - os: ubuntu-latest
-            arch: aarch64
-          - os: windows-latest
-            arch: aarch64
         include:
+          - os: macOS-latest
+            arch: aarch64
+            version: '1'
+          - os: macOS-latest
+            arch: aarch64
+            version: 'lts'
           - os: ubuntu-latest
             arch: x86
             version: '1'
