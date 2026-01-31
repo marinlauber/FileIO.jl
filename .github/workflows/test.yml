@@ -31,10 +31,10 @@ jobs:
           - x64
         include:
           - os: macOS-latest
-            arch: default
+            arch: aarch64
             version: '1'
           - os: macOS-latest
-            arch: latest
+            arch: aarch64
             version: 'lts'
           - os: ubuntu-latest
             arch: x86
