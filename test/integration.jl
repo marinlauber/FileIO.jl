@@ -16,7 +16,7 @@ using Test
         img2 = load(io2)
         @test img2 == img
 
-        uri = HTTP.URI("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/135px-Wikipedia-logo-v2-en.svg.png")
+        uri = HTTP.URI("https://raw.githubusercontent.com/JuliaImages/TestImages.jl/images/images/autumn_leaves.png")
         @test isa(load(uri), Matrix)
     end
 end
